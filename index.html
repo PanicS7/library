@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Book Library</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <div id="container">
+      <div id="header">
+        <h1 id="title">Library</h1>
+        <div id="bookData">
+          <input type="text" name="title" placeholder="book title" />
+          <p id="titleError" class="errorMessage">
+            Book title is required and can't be more then 30 characters long!
+          </p>
+          <input type="text" name="author" placeholder="author name" />
+          <p id="authorError" class="errorMessage">
+            Author name is required and can't be more then 30 characters long!
+          </p>
+          <input type="number" name="pages" placeholder="book pages count" />
+          <p id="pagesError" class="errorMessage">
+            Book need to have pages count between 1 and 20000!
+          </p>
+
+          <br />
+          <div id="checkboxGroup">
+            <label for="readed">Readed?</label>
+            <input type="checkbox" name="readed" id="readed" />
+          </div>
+        </div>
+        <div id="buttonContainer">
+          <button id="addBook" onclick="addBookToLibrary()">Add book</button>
+          <button id="clear" onclick="clearLibrary()">Clear library</button>
+        </div>
+        <p>Book count: <span id="counter">0</span></p>
+      </div>
+      <div id="library">
+        <!-- added with js -->
+      </div>
+    </div>
+
+    <script src="./app.js"></script>
+  </body>
+</html>
