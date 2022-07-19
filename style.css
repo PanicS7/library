@@ -105,3 +105,11 @@ body {
   cursor: pointer;
   color: #fff;
 }
+.readedBtn {
+  background-color: blue;
+  padding: 0.7em 1.2rem;
+  border: 0px;
+  border-radius: 1em;
+  cursor: pointer;
+  color: #fff;
+}

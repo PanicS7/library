@@ -99,13 +99,19 @@ function showBook(lastBook) {
   readedElem.innerText = lastBook.readed ? "the book was read" : "the book has not been read";
   cardContainer.append(readedElem);
 
-  // add btn
+  // add remove btn
   let removeBtn = document.createElement("button");
   removeBtn.innerText = "Remove book!";
   removeBtn.className = "removeBtn";
   removeBtn.addEventListener("click", () => removeBook(lastBook));
-
   cardContainer.append(removeBtn);
+
+  // add change readed btn
+  let readedBtn = document.createElement("button");
+  readedBtn.innerText = "Change readed status";
+  readedBtn.className = "readedBtn";
+  readedBtn.addEventListener("click", () => changeReaded(lastBook));
+  cardContainer.append(readedBtn);
 
   // append new container to screen
   cardContainer.classList.add(lastBook.readed ? "bookReaded" : "bookNotReaded");
@@ -168,4 +174,25 @@ function removeBook (book) {
   // increase counter
   let currCounter = parseInt(counterElem.innerText);
   counterElem.innerText = currCounter - 1;
+}
+
+function changeReaded (book) {
+  let card = event.target.parentNode;
+  library.map((b,i) => {
+    if ((b.title === book.title) && (b.author === book.author) && (b.pages === book.pages) && (b.readed === book.readed)) {
+      if (book.readed === true) {
+        card.classList.remove("bookReaded");
+        card.classList.add("bookNotReaded");
+        // select readed message elem
+        card.childNodes[3].innerText = "the book has not been read";
+      } else {
+        card.classList.remove("bookNotReaded");
+        card.classList.add("bookReaded");
+        // select readed message elem 
+        card.childNodes[3].innerText = "the book was read";
+      }
+      b.readed = !b.readed;
+    }
+    return;
+  });
 }
